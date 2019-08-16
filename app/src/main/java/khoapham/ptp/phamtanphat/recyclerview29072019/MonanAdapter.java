@@ -29,7 +29,10 @@ public class MonanAdapter extends RecyclerView.Adapter<MonanAdapter.MonanHolder>
 
     @Override
     public void onBindViewHolder(@NonNull MonanHolder holder, int position) {
-        holder.
+        Monan monan = mangmonan.get(position);
+        holder.txtTen.setText(monan.getTen());
+        holder.txtGia.setText(monan.getGia());
+        holder.imgHinhanh.setImageResource(monan.getHinhanh());
     }
 
     @Override
