@@ -5,10 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity   {
 
     RecyclerView recyclerView;
     ArrayList<Monan> monans;
@@ -27,9 +29,16 @@ public class MainActivity extends AppCompatActivity {
         monans.add(new Monan("Cơm sườn",25000,R.drawable.comsuon));
 
         monanAdapter = new MonanAdapter(monans);
+        monanAdapter.listenClick(new HandelClick() {
+            @Override
+            public void onLongClick(View v, int position) {
+                Log.d("BBB",position + "");
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         recyclerView.setAdapter(monanAdapter);
 
-
     }
+
 }

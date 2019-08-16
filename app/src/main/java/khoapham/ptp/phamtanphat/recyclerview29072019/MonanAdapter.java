@@ -16,8 +16,11 @@ public class MonanAdapter extends RecyclerView.Adapter<MonanAdapter.MonanHolder>
 
     ArrayList<Monan> mangmonan;
 
+    HandelClick handelClick;
+
     public MonanAdapter(ArrayList<Monan> mangmonan) {
         this.mangmonan = mangmonan;
+
     }
 
     @NonNull
@@ -54,10 +57,19 @@ public class MonanAdapter extends RecyclerView.Adapter<MonanAdapter.MonanHolder>
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    int position = (int) view.getTag();
-                    Log.d("BBB",getPosition() + "");
+//                    handelClick.onClick(view,(int) view.getTag());
+                }
+            });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    handelClick.onLongClick(view, (Integer) view.getTag());
+                    return true;
                 }
             });
         }
+    }
+    public void listenClick(HandelClick handelClick){
+        this.handelClick = handelClick;
     }
 }
