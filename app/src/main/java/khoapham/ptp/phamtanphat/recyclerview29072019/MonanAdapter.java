@@ -1,5 +1,6 @@
 package khoapham.ptp.phamtanphat.recyclerview29072019;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ public class MonanAdapter extends RecyclerView.Adapter<MonanAdapter.MonanHolder>
     @Override
     public void onBindViewHolder(@NonNull MonanHolder holder, int position) {
         Monan monan = mangmonan.get(position);
+        holder.itemView.setTag(position);
         holder.txtTen.setText(monan.getTen());
         holder.txtGia.setText(monan.getGia() +"");
         holder.imgHinhanh.setImageResource(monan.getHinhanh());
@@ -39,8 +41,6 @@ public class MonanAdapter extends RecyclerView.Adapter<MonanAdapter.MonanHolder>
     public int getItemCount() {
         return mangmonan.size() > 0 ? mangmonan.size() : 0;
     }
-
-
     class MonanHolder extends RecyclerView.ViewHolder {
         TextView txtTen, txtGia;
         ImageView imgHinhanh;
@@ -50,6 +50,14 @@ public class MonanAdapter extends RecyclerView.Adapter<MonanAdapter.MonanHolder>
             txtGia = itemView.findViewById(R.id.textviewGia);
             txtTen = itemView.findViewById(R.id.textviewTen);
             imgHinhanh = itemView.findViewById(R.id.imageItemMonan);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = (int) view.getTag();
+                    Log.d("BBB",getPosition() + "");
+                }
+            });
         }
     }
 }

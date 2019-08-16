@@ -29,5 +29,7 @@ public class MainActivity extends AppCompatActivity {
         monanAdapter = new MonanAdapter(monans);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(monanAdapter);
+
+
     }
 }
