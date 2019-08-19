@@ -32,7 +32,9 @@ public class MainActivity extends AppCompatActivity   {
         monanAdapter.listenClick(new HandelClick() {
             @Override
             public void onLongClick(View v, int position) {
-                Log.d("BBB",position + "");
+
+                monanAdapter.addMonan(new Monan("Cá kho 2" , 50000 , R.drawable.cakho));
+
             }
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
